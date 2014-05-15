@@ -1,15 +1,23 @@
 # ignore object files
 *.[oa]
 
-# ignore temporary backup files
+# ignore temperary backup files
 *~
 .#*
 .DS_Store
 
-# ignore temporary latex file
+# ignore temperary latex file
 *.aux
 *.log
 *.dvi
 *.toc
 *.blg
 
+# ignore java class files
+*.class
+
+# ignore ev3 source
+lego/*
+
+# ignore .autosave files
+*.autosave

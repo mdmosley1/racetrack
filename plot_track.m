@@ -2,6 +2,7 @@ function [th,ch,clr] = plot_track(tx,ty,chkx,chky,np,H)
 %PLOT_TRACK This function plots the track and checkpoints
 %   Detailed explanation goes here
 
+% Plot track
 th = zeros(16);
 for it = 1:16
     th(it) = line(tx(it,:),ty(it,:)); hold on;
