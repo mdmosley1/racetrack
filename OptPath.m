@@ -35,11 +35,11 @@ for M = 1:muts % Mutation M
             delete_handles(ph,j);
         end
         % evaluate chromosome and return fitness
-        [myCar,myChrom,ph] = eval_chrom(myChrom,smin,smax,j,ph,...
+        [myCar,myChrom,ph] = eval_chrom(myCar,myChrom,smin,smax,j,ph,...
             ch,its,clr);
         
         if (myCar(j).done == 1) % only save gene if car finished
-            gene_pool = save_chrom(myCar,myChrom,gene_pool,j);
+            gene_pool = save_chrom(myChrom,gene_pool,j);
         end
     end
 end
