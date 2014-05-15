@@ -6,5 +6,5 @@ tstart = tic; % start timer
 % for a = 1:50
 %     B(a) = OptPath(muts,mutr + a*2,np,its,smin,smax)
 % end
-OptPath(muts,mutr,np,its,smin,smax)
+[BestChrom,BestCar] = OptPath(muts,mutr,np,its,smin,smax);
 toc(tstart)

@@ -24,7 +24,8 @@ for a=1:3
             %zero acceleration
             myCar(j).vel(it+1,:) = myCar(j).vel(it,:);
         end
-        c(a,b) = {myCar(j).pos(it,:) + myCar(j).vel(it+1,:)}; % store candidate in cell array
+        % store candidate in cell array
+        c(a,b) = {myCar(j).pos(it,:) + myCar(j).vel(it+1,:)}; 
         % convert array within cell of candidate matrix to cell array. It
         % needs to be flipped because rows and columns are specified in the
         % reverse order as coordinates.

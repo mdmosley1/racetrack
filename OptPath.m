@@ -1,4 +1,4 @@
-function bestFit = OptPath(muts,mutr,np,its,smin,smax) % add debug parameter
+function [BestChrom,BestCar] = OptPath(muts,mutr,np,its,smin,smax)
 % OPTPATH
 %   This function will use a genetic algorithm to find the optimum path for
 %   a car navigating a racetrack
@@ -35,13 +35,15 @@ for M = 1:muts % Mutation M
             delete_handles(ph,j);
         end
         % evaluate chromosome and return fitness
-        [myCar,myChrom,ph] = eval_chrom(myCar,myChrom,smin,smax,j,ph,ch,its,clr);
+        [myCar,myChrom,ph] = eval_chrom(myCar,myChrom,smin,smax,j,ph,...
+            ch,its,clr);
         
         if (myCar(j).done == 1) % only save gene if car finished
             gene_pool = save_chrom(myChrom,gene_pool,j);
         end
     end
 end
-gene_pool 
-bestFit = min([gene_pool.fit])
+[~,I] = min([gene_pool.fit]); 
+BestChrom = gene_pool(I); 
+BestCar = myCar(I);
 end

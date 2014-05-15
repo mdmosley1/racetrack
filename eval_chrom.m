@@ -1,4 +1,5 @@
-function [myCar,myChrom,ph] = eval_chrom(myCar,myChrom,smin,smax,j,ph,ch,its,clr)
+function [myCar,myChrom,ph] = eval_chrom(myCar,myChrom,smin,smax,j,ph,...
+    ch,its,clr)
 %EVAL_CHROM This function determines the fitness of the chromosome
 %   This function determines the fitness of the chromosome by evaluating
 %   the path that a particle would take when using said chromosome. Each
