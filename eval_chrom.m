@@ -42,7 +42,8 @@ while it < its % Iteration it
     if (isempty(XI)==0) % if XI is not empty, there is intersect
         myCar(j).check = myCar(j).check + 1;
         if (myCar(j).check == 11) % end of track
-            myChrom(j).fit = it;
+            myChrom(j).fit = it+1;
+            myChrom(j).path = myCar(j).pos;
             myCar(j).done = 1;
             return;
         end

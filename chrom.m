@@ -10,6 +10,8 @@ classdef chrom
         COPY_value
         % initialize fitness to some high value
         fit
+        % this is the path that the car took for this chromosome
+        path
     end
     
     methods

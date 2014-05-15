@@ -1,4 +1,5 @@
-function  [bestc,bestv,canValue,myCar] = candidate_search(myCar,myChrom,smin,smax,j,it)
+function  [bestc,bestv,canValue,myCar] = candidate_search(myCar,myChrom,...
+    smin,smax,j,it)
 %CANDIDATE_SEARCH This function finds the best candidate node
 %   This function takes the current position and velocity and computes nine
 %   different candidate nodes. It will not choose a node that results in

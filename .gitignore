@@ -1,0 +1,15 @@
+# ignore object files
+*.[oa]
+
+# ignore temporary backup files
+*~
+.#*
+.DS_Store
+
+# ignore temporary latex file
+*.aux
+*.log
+*.dvi
+*.toc
+*.blg
+

@@ -7,7 +7,8 @@ function gene_pool = save_chrom(myChrom,gene_pool,j)
 
 [Y I] = max([gene_pool.fit]);
 if (myChrom(j).fit < Y)
-    gene_pool(I).fit = myChrom(j).fit; % store fitness level
-    gene_pool(I).value = myChrom(j).value; % store chromosome
+    gene_pool(I).fit = myChrom(j).fit;      % store fitness level
+    gene_pool(I).value = myChrom(j).value;  % store chromosome
+    gene_pool(I).path = myChrom(j).path;     % store path
 end
 end
