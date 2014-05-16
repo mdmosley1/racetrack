@@ -22,7 +22,8 @@ for M = 1:muts % Mutation M
     
     for j = 1:np % Car/chrom j
         % initialize chromosome nodes
-        myChrom(j).value = init_nodes;
+        newTrack = myTrack;
+        myChrom(j).value = newTrack.nodes;
         myChrom(j).COPY_value = myChrom(j).value;
         
         % initialize car values, preallocating arrays for speed
