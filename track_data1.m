@@ -10,29 +10,14 @@ x1 = d; x2 = d+e1; x3 = d+e1+e2; x4 = d+e1+e2+w2; x5 = d+e1+w; x6 = W;
 y1 = d; y2 = d+e1; y3 = d+e1+e2; y4 = d+e1+h/2; y5 = d+e1+e2+h2;
 y6 = d+e1+h; y7 = H;
 
-xout = [x1 x1 x2 x5 x6 x6 x5 x2 x1];
-yout = [y2 y6 y7 y7 y6 y2 y1 y1 y2];
+xyout = [x1 x1 x2 x5 x6 x6 x5 x2 x1;
+         y2 y6 y7 y7 y6 y2 y1 y1 y2];
 
-xin = [x2 x2 x3 x4 x5 x5 x4 x3 x2];
-yin = [y3 y5 y6 y6 y5 y3 y2 y2 y3];
+xyin = [x2 x2 x3 x4 x5 x5 x4 x3 x2;
+       y3 y5 y6 y6 y5 y3 y2 y2 y3];
 
-% build outside track lines
-for i = 1:8
-    tx(i,:) = [xout(i) xout(i+1)];
-    ty(i,:) = [yout(i) yout(i+1)];
-end
 
-% build inside track lines
-for i = 9:16
-    tx(i,:) = [xin(i-8) xin(i+1-8)];
-    ty(i,:) = [yin(i-8) yin(i+1-8)];
-end
 
-% Plot track
-th = zeros(16,1);
-for it = 1:16
-    th(it) = line(tx(it,:),ty(it,:)); hold on;
-end
 
 % % Fitness checkpoint lines
 % chkx(1,:) = [x1 x2];

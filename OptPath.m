@@ -4,7 +4,7 @@ function [BestChrom] = OptPath(muts,mutr,np,its,smin,smax)
 %   a car navigating a racetrack
 
 % plot track and return object handles to track pieces
-[th,ch,clr] = plot_track(tx,ty,chkx,chky,np,H);
+[th,ch,clr] = build_track(tx,ty,chkx,chky,np,H);
 
 % ----------------------------- Run Simulation --------------------------
 % Initialize gene pool
