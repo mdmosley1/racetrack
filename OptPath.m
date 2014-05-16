@@ -1,10 +1,10 @@
-function [BestChrom] = OptPath(muts,mutr,np,its,smin,smax)
+function [BestChrom] = OptPath(muts,mutr,np,its,smin,smax,myTrack)
 % OPTPATH
 %   This function will use a genetic algorithm to find the optimum path for
 %   a car navigating a racetrack
 
 % plot track and return object handles to track pieces
-[th,ch,clr] = build_track(tx,ty,chkx,chky,np,H);
+[th,ch,clr] = build_track(np,track);
 
 % ----------------------------- Run Simulation --------------------------
 % Initialize gene pool

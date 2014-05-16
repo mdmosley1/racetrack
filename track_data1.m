@@ -1,4 +1,8 @@
-%% track_data1
+function myTrack = track_data1
+%PLOT_TRACK This function sets data for track 1
+%   Detailed explanation goes here
+
+myTrack = track;
 
 % ---------------------------- Track Dims -------------------------------
 e2 = 3; e1 = 2*e2; w = 4*e2; h = 8*e2; h2 = h-2*e2; w2 = w - 2*e2;
@@ -13,8 +17,18 @@ y1 = d; y2 = d+e1; y3 = d+e1+e2; y4 = d+e1+h/2; y5 = d+e1+e2+h2;
 y6 = d+e1+h; y7 = H;
 
 % make path for outside track
-xyout = [x1 x1 x2 x5 x6 x6 x5 x2 x1;
+myTrack.outside = [x1 x1 x2 x5 x6 x6 x5 x2 x1;
          y2 y6 y7 y7 y6 y2 y1 y1 y2];
+
 % make path for inside track
-xyin = [x2 x2 x3 x4 x5 x5 x4 x3 x2;
+myTrack.inside = [x2 x2 x3 x4 x5 x5 x4 x3 x2;
        y3 y5 y6 y6 y5 y3 y2 y2 y3];
+
+% initialize nodes to zero
+
+% checkpoints
+myTrack.checkpoint = [x1 x2 x5 x6;
+        y4 y4 y4 y4];
+    
+
+% start position

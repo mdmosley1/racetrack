@@ -4,8 +4,6 @@ function value = init_nodes
 %   grid). The nodes outside the track have to be zero so that cars dont go
 %   out of bounds.
 
-load track_data;
-
 value = rand([H+10 W+10]); % initialize the value matrix
 
 % Make nodes outside and on tracklines zero

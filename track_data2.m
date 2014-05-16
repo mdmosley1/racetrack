@@ -13,3 +13,7 @@ xyin = [x2 x2 x5 x5 x2 x2 x3 x8 x9 x9 x6 x6 x9 x9 x8 x3 x2;
         y3 y4 y6 y9 y11 y12 y13 y13 y12 y11 y9 y6 y4 y3 y2 y2 y3];
 
 % initialize nodes to zero
+
+% checkpoints
+
+% start position
