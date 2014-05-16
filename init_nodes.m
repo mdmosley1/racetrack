@@ -34,6 +34,5 @@ end
 for m=1:e1+1
     value(y1+(m-1),x5+(m-1):x6) = 0;
 end
-% 
 end
 
