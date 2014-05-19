@@ -26,13 +26,14 @@ for it = 1:sz*2
 end
 
 % % Plot checkpoints
- ch = zeros(1,11);
-% for it = 1:10
-%     ch(it) = line(chkx(it,:),chky(it,:)); hold on;
-%     set(ch(it),'Color','g');
-% end
-% 
-% axis([0 H+10 0 H+10]);
+ch = zeros(1,5);
+s = size(myTrack.cp); s = s(2);
+for i = 1:s
+    ch(i) = line( myTrack.cp{i}(1,:),myTrack.cp{i}(2,:) ); hold on;
+    set(ch(i),'Color','g');
+end
+
+axis([0 myTrack.H+10 0 myTrack.H+10]);
 grid on % adjust grid size
  
 % color map

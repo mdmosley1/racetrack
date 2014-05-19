@@ -21,7 +21,8 @@ for r = 2:np
             m = m + 1;
         end
     end 
-    gene_pool(r).value = MutBestGene; % insert each chromosome back into value
+    % insert each chromosome back into value
+    gene_pool(r).value = MutBestGene; 
 end
 gene_pool(1).value = BestGene; % insert best chromosome
 end
