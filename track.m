@@ -7,7 +7,7 @@ classdef track
         inside
         checkpoint
         start
-        nodes
+        nodes =a 
     end
     
     methods
