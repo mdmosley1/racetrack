@@ -7,7 +7,7 @@ classdef track2
         d = 10;
     end
     properties (Dependent = true)
-        x,y,outside,inside,e1,e2,w,h,w2,h2,H,W,nodes,sx,sy,cp
+        x,y,outside,inside,e1,e2,w,h,w2,h2,s,H,W,nodes,sx,sy,cp
     end
     methods
         % base dimensions of track
@@ -17,6 +17,8 @@ classdef track2
             h1 = 3*obj.K;end
         function w = get.w(obj)
             w1 = 5*obj.K;end
+        function s = get.s(obj)
+            s = 5*obj.K;end
         
         % other dimensions of track
         function e1 = get.e1(obj)
@@ -40,7 +42,7 @@ classdef track2
                 ];
         end
         function y = get.y(obj)
-            y = [obj.d 
+            y = [obj.d
                 obj.d+obj.e1
                 obj.d+obj.e1+obj.e2         %y3
                 obj.d+obj.e1+obj.h/2        %y4
