@@ -58,7 +58,6 @@ for a = 1:35
     for b = 1:50
         if (in(i) == 1)
             plot(a,b,'r*')
-            
         end
         i = i + 1;
     end

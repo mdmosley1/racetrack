@@ -1,4 +1,4 @@
-classdef track1
+classdef track1_test
     %TRACK1 This is a class for track1
     %   This class was created because it needs its own method for
     %   initializing the nodes to zero
@@ -73,36 +73,12 @@ classdef track1
         % ---------- use getter method to zero out nodes ----------------
         function nodes = get.nodes(obj)
             % initialize the value matrix
-            nodes = rand([obj.H+10 obj.W+10]); 
+            %nodes = rand([obj.H+10 obj.W+10]); 
             
-            % Make nodes outside and on tracklines zero
-            nodes(1:obj.H+10,1:obj.d) = 0; % west of track
-            nodes(1:obj.d,1:obj.W+10) = 0; % south of track
-            nodes(obj.H:obj.H+10,1:obj.W+10) = 0; % north of track
-            nodes(1:obj.H+10,obj.W:obj.W+10) = 0; % east of track
+            nodes = init_nodes_1(obj.outside,obj.inside,obj.H,obj.W);
             
-            % Make nodes inside track zero
-            % horizontal strip
-            nodes(obj.y(3):obj.y(5),obj.x(2):obj.x(5)) = 0;
-            % vertical strip
-            nodes(obj.y(2):obj.y(6),obj.x(3):obj.x(4)) = 0;
             
-            % Make nodes zero around Southwest corner
-            for m=1:obj.e1+1
-                nodes(obj.d+(m-1),obj.d:obj.d+obj.e1+(1-m)) = 0;
-            end
-            % Northwest corner
-            for m=1:obj.e1+1
-                nodes(obj.y(6)+(m-1),obj.x(1):obj.x(1)+(m-1)) = 0;
-            end
-            % Northeast corner
-            for m=1:obj.e1+1
-                nodes(obj.y(7)-(m-1),obj.x(5)+(m-1):obj.x(6)) = 0;
-            end
-            % Southeast corner
-            for m=1:obj.e1+1
-                nodes(obj.y(1)+(m-1),obj.x(5)+(m-1):obj.x(6)) = 0;
-            end
+            
         end
     end
 end
