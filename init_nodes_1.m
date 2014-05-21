@@ -50,7 +50,7 @@ inInnerHull = inhull(testpoints,trackin); i = 1;
 for a = 1:W+10
     for b = 1:H+10
         if (inOuterHull(i) == 0 || inInnerHull(i) == 1)
-            nodes(a,b) = 0;
+            nodes(b,a) = 0; % b,a backwards because nodes(rows,columns)
             plot(a,b,'r*');
         end
         i = i + 1;
