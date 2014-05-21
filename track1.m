@@ -49,9 +49,9 @@ classdef track1
         end
         function outside = get.outside(obj)
             outside = [obj.x(1) obj.x(1) obj.x(2) obj.x(5) obj.x(6)...
-                obj.x(6) obj.x(5) obj.x(2) obj.x(1);
-                obj.y(2) obj.y(6) obj.y(7) obj.y(7) obj.y(6) obj.y(2)...
-                obj.y(1) obj.y(1) obj.y(2)];
+                       obj.x(6) obj.x(5) obj.x(2) obj.x(1);
+                       obj.y(2) obj.y(6) obj.y(7) obj.y(7) obj.y(6)...
+                       obj.y(2) obj.y(1) obj.y(1) obj.y(2)];
         end
         function inside = get.inside(obj)
             inside = [obj.x(2) obj.x(2) obj.x(3) obj.x(4) obj.x(5)...
@@ -72,37 +72,8 @@ classdef track1
         
         % ---------- use getter method to zero out nodes ----------------
         function nodes = get.nodes(obj)
-            % initialize the value matrix
-            nodes = rand([obj.H+10 obj.W+10]); 
-            
-            % Make nodes outside and on tracklines zero
-            nodes(1:obj.H+10,1:obj.d) = 0; % west of track
-            nodes(1:obj.d,1:obj.W+10) = 0; % south of track
-            nodes(obj.H:obj.H+10,1:obj.W+10) = 0; % north of track
-            nodes(1:obj.H+10,obj.W:obj.W+10) = 0; % east of track
-            
-            % Make nodes inside track zero
-            % horizontal strip
-            nodes(obj.y(3):obj.y(5),obj.x(2):obj.x(5)) = 0;
-            % vertical strip
-            nodes(obj.y(2):obj.y(6),obj.x(3):obj.x(4)) = 0;
-            
-            % Make nodes zero around Southwest corner
-            for m=1:obj.e1+1
-                nodes(obj.d+(m-1),obj.d:obj.d+obj.e1+(1-m)) = 0;
-            end
-            % Northwest corner
-            for m=1:obj.e1+1
-                nodes(obj.y(6)+(m-1),obj.x(1):obj.x(1)+(m-1)) = 0;
-            end
-            % Northeast corner
-            for m=1:obj.e1+1
-                nodes(obj.y(7)-(m-1),obj.x(5)+(m-1):obj.x(6)) = 0;
-            end
-            % Southeast corner
-            for m=1:obj.e1+1
-                nodes(obj.y(1)+(m-1),obj.x(5)+(m-1):obj.x(6)) = 0;
-            end
+            % initialize the value matrix            
+            nodes = init_nodes_1(obj.outside,obj.inside,obj.H,obj.W);
         end
     end
 end

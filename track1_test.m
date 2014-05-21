@@ -48,10 +48,10 @@ classdef track1_test
             W = obj.x(6);
         end
         function outside = get.outside(obj)
-            outside = [obj.x(1) obj.x(1) obj.x(2) obj.x(5) obj.x(6)...
-                obj.x(6) obj.x(5) obj.x(2) obj.x(1);
-                obj.y(2) obj.y(6) obj.y(7) obj.y(7) obj.y(6) obj.y(2)...
-                obj.y(1) obj.y(1) obj.y(2)];
+            outside = [obj.x(1) obj.x(1) obj.x(2) obj.x(5) obj.x(6)
+                       obj.x(6) obj.x(5) obj.x(2) obj.x(1);
+                       obj.y(2) obj.y(6) obj.y(7) obj.y(7) obj.y(6)
+                       obj.y(2) obj.y(1) obj.y(1) obj.y(2)];
         end
         function inside = get.inside(obj)
             inside = [obj.x(2) obj.x(2) obj.x(3) obj.x(4) obj.x(5)...
@@ -72,13 +72,8 @@ classdef track1_test
         
         % ---------- use getter method to zero out nodes ----------------
         function nodes = get.nodes(obj)
-            % initialize the value matrix
-            %nodes = rand([obj.H+10 obj.W+10]); 
-            
+            % initialize the value matrix            
             nodes = init_nodes_1(obj.outside,obj.inside,obj.H,obj.W);
-            
-            
-            
         end
     end
 end
