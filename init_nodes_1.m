@@ -10,31 +10,15 @@ yout = outside(2,:);
 xin = inside(1,:);
 yin = inside(2,:);
 
-%% Plotting
 sz = size(xout);sz = sz(2)-1;
-% build outside track lines
-for i = 1:sz
-    tx(i,:) = [xout(i) xout(i+1)];
-    ty(i,:) = [yout(i) yout(i+1)];
-end
-% build inside track lines
-for i = 1:sz
-    tx(i+sz,:) = [xin(i) xin(i+1)];
-    ty(i+sz,:) = [yin(i) yin(i+1)];
-end
-% plot track
-th = zeros(sz*2,1);
-for it = 1:sz
-    th(it) = line(tx(it,:),ty(it,:)); hold on;
-end
 
-%% get xy coords in right format for inhull 
+%% get xy coords in right format for inhull function
 for i = 1:sz
     trackout(i,:) = [xout(i) yout(i)];
     trackin(i,:) = [xin(i) yin(i)] ;
 end
 
-%% initialize points for matrix
+%% initialize testpoints
 testpoints = zeros(1750,2); i = 1;
 for a = 1:W+10
     for b = 1:H+10
@@ -42,7 +26,7 @@ for a = 1:W+10
         i = i + 1;
     end
 end
-inOuterHull = inhull(testpoints,trackout); i = 1;
+inOuterHull = inhull(testpoints,trackout);
 inInnerHull = inhull(testpoints,trackin); i = 1;
 
 
@@ -51,7 +35,6 @@ for a = 1:W+10
     for b = 1:H+10
         if (inOuterHull(i) == 0 || inInnerHull(i) == 1)
             nodes(b,a) = 0; % b,a backwards because nodes(rows,columns)
-            plot(a,b,'r*');
         end
         i = i + 1;
     end

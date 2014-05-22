@@ -41,15 +41,17 @@ classdef track2
                 obj.d+obj.w1+4*obj.e2   %x10
                 ];
         end
-        function y = get.y(obj)
-            y = [obj.d
-                obj.d+obj.e1
-                obj.d+obj.e1+obj.e2         %y3
-                obj.d+obj.e1+obj.h/2        %y4
-                obj.d+obj.e1+obj.e2+obj.h2  %y5
-                obj.d+obj.e1+obj.h          %y6
-                obj.d+obj.e1+obj.h+obj.e1]; %y7
-        end
+%         function y = get.y(obj)
+%             y = [obj.d
+%                 obj.d + 2*obj.e2
+%                 obj.d + 3*obj.e2
+%                 obj.d + 3*obj.e2 + obj.h2
+%                 obj.d + 2*obj.e2 + obj.h1
+%                 obj.d + 2*obj.e2 + obj.h1 + obj.s
+%                 
+%                 
+%                 ]; 
+%         end
         function H = get.H(obj)
             H = obj.y(7);
         end

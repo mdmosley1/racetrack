@@ -5,6 +5,8 @@ classdef track1
     properties (Constant)
         K = 3; % the basic unit of measurement. Everything is based on K
         d = 10;
+        a = min([1 2 3])
+        
     end
     properties (Dependent = true)
         x,y,outside,inside,e1,e2,w,h,w2,h2,H,W,nodes,sx,sy,cp
