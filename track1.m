@@ -17,7 +17,7 @@ classdef track1
         end
         % ---------- use getter method to zero out nodes ----------------
         function nodes = get.nodes(obj)
-            % initialize the value matrix            
+            % initialize the value matrix
             nodes = init_nodes_1(obj.track_data);
         end
     end
