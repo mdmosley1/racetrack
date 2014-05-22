@@ -1,36 +1,51 @@
-function value = init_nodes
-%ZERO_NODES This function makes nodes outside track zero
-%   Initialize value matrix for node grid (Each particle j gets its own HxW
-%   grid). The nodes outside the track have to be zero so that cars dont go
-%   out of bounds.
+function nodes = init_nodes(track_data,H,W)
+%INIT_NODES Summary of this function goes here
+%   Detailed explanation goes here
 
-value = rand([H+10 W+10]); % initialize the value matrix
+% Unpack information from track_path
+inside = track_data{1};
+outside = track_data{2};
+start = track_data{3};
+H = track_data{4};
+W = track_data{5};
+cp = track_data{6};
 
-% Make nodes outside and on tracklines zero
-value(1:H+10,1:d) = 0; % west of track
-value(1:d,1:W+10) = 0; % south of track
-value(H:H+10,1:W+10) = 0; % north of track
-value(1:H+10,W:W+10) = 0; % east of track
+% initialize random matrix of nodes
+nodes = rand([H+10 W+10]);
 
-% Make nodes inside track zero
-value(e1+e2+d:e1+e2+h2+d,e1+d:e1+2*e2+w2+d,:) = 0;
-value(e1+d:e1+h+d,e1+e2+d:e1+e2+w2+d,:) = 0;
+xout = outside(1,:);
+yout = outside(2,:);
+xin = inside(1,:);
+yin = inside(2,:);
 
-% Make nodes around corner zero Southwest corner
-for m=1:e1+1
-    value(d+(m-1),d:d+e1+(1-m)) = 0;
+sz = size(xout);sz = sz(2)-1;
+
+%% get xy coords in right format for inhull function
+for i = 1:sz
+    trackout(i,:) = [xout(i) yout(i)];
+    trackin(i,:) = [xin(i) yin(i)] ;
 end
-% Northwest corner
-for m=1:e1+1
-    value(d+e1+h+(m-1),d:d+e1-(e1-m)) = 0;
+
+%% initialize testpoints
+testpoints = zeros(1750,2); i = 1;
+for a = 1:W+10
+    for b = 1:H+10
+        testpoints(i,:) = [a b];
+        i = i + 1;
+    end
 end
-% Northeast corner
-for m=1:e1+1
-    value(y7-(m-1),x5+(m-1):x6) = 0;
-end
-% Southeast corner
-for m=1:e1+1
-    value(y1+(m-1),x5+(m-1):x6) = 0;
+inOuterHull = inhull(testpoints,trackout);
+inInnerHull = inhull(testpoints,trackin); i = 1;
+
+
+%% zero out nodes outside of outer track or inside inner track
+for a = 1:W+10
+    for b = 1:H+10
+        if (inOuterHull(i) == 0 || inInnerHull(i) == 1)
+            nodes(b,a) = 0; % b,a backwards because nodes(rows,columns)
+        end
+        i = i + 1;
+    end
 end
 end
 
