@@ -1,4 +1,4 @@
-function track_path = setTrackPath1
+function track_data = setTrackData1
 %SETTRACKPATH1 Set the path for track1
 %   Detailed explanation goes here
 
@@ -7,10 +7,10 @@ function track_path = setTrackPath1
 d = 10; % displacement from xy axis
 e1 = 6; 
 e2 = e1/2;
-h = 4*e1;
-w = 2*e1;
-h2 = h - 2*e2;
-w2 = w - 2*e2;
+h1 = 4*e1;
+w1 = 2*e1;
+h2 = h1 - 2*e2;
+w2 = w1 - 2*e2;
 
 % Intermediate values to make setting track path easier
 
@@ -26,9 +26,8 @@ y(2) = y(1) + e1;
 y(3) = y(2) + e2;
 y(4) = y(2) + h1/2;
 y(5) = y(3) + h2;
-y(6) = y(2) + h;
+y(6) = y(2) + h1;
 y(7) = y(6) + e1;
-
 
 % Set the outside and inside track arrays
 inside = [x(2) x(2) x(3) x(4) x(5) x(5) x(4) x(3) x(2)
@@ -44,6 +43,6 @@ cp{1} = [x(5) x(6); y(4) y(4)];
 cp{2} = [x(1) x(2); y(4) y(4)];
 % pack up data into cell array since only one property ouput can be
 % returned
-track_path = {inside outside start H W cp};
+track_data = {inside outside start H W cp};
 end
 

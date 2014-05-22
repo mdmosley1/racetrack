@@ -2,8 +2,11 @@ function [th,ch,clr] = build_track(np,myTrack)
 %PLOT_TRACK This function plots the track and checkpoints
 %   Detailed explanation goes here
 
-xyout = myTrack.outside;
-xyin = myTrack.inside;
+% Unpack data from myTrack.track_data
+xyin = myTrack.track_data{1};
+xyout = myTrack.track_data{2};
+H = myTrack.track_data{4};
+W = myTrack.track_data{5};
 
 sz = size(xyout);sz = sz(2)-1;
 
@@ -33,7 +36,7 @@ for i = 1:s
     set(ch(i),'Color','g');
 end
 
-axis([0 myTrack.H+10 0 myTrack.H+10]);
+axis([0 H+10 0 H+10]);
 grid on % adjust grid size
  
 % color map

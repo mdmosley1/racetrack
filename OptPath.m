@@ -28,7 +28,7 @@ for M = 1:muts % Mutation M
         
         % initialize car values, preallocating arrays for speed
         myCar(j).pos = zeros(its,2); myCar(j).vel = zeros(its,2);
-        myCar(j).pos(1,:) = [newTrack.sx newTrack.sy]; 
+        myCar(j).pos(1,:) = newTrack.start; 
         myCar(j).vel(1,:) = [0 2];
         % delete handles/path for car j from the last mutation cycle
         if (M>1)
