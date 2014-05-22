@@ -1,6 +1,10 @@
-function nodes = init_nodes_1(outside,inside,H,W)
-%UNTITLED3 Summary of this function goes here
+function nodes = init_nodes_1(track_path,H,W)
+%INIT_NODES Summary of this function goes here
 %   Detailed explanation goes here
+
+% Unpack information from track_path
+inside = track_path(1,:);
+outside = track_path(2,:);
 
 % initialize random matrix of nodes
 nodes = rand([H+10 W+10]);
