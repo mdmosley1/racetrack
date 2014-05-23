@@ -28,7 +28,7 @@ for i = 2:9
     hull1(i-1,:) = [xin(i) yin(i)] ;
 end
 for i = 10:17
-    hull2(i-9,:) = [xin(i) yin(i)]
+    hull2(i-9,:) = [xin(i) yin(i)];
 end
 
 hull3 = [xin(1) yin(1)
@@ -42,7 +42,7 @@ hull4 = [xout(1) yout(1)
     xout(16) yout(16)];
 
 for i = 8:11
-    hull5(i-7,:) = [xout(i) yout(i)]    
+    hull5(i-7,:) = [xout(i) yout(i)];
 end
 
 %% initialize testpoints
@@ -65,11 +65,10 @@ i = 1;
 for a = 1:W+10
     for b = 1:H+10
         if (inHull6(i) == 0 || inHull1(i) == 1 || inHull2(i) == 1 ...
-            || inHull3(i) == 1 || inHull4(i) == 1 || inHull5(i) == 1)
+                || inHull3(i) == 1 || inHull4(i) == 1 || inHull5(i) == 1)
             nodes(b,a) = 0; % b,a backwards because nodes(rows,columns)
         end
         i = i + 1;
     end
 end
 end
-

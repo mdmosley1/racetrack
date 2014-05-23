@@ -7,7 +7,8 @@ function gene_pool = mutate(gene_pool,mutr,np)
 %   the output
 
 % find chromosome with lowest fitness
-[~,I] = min([gene_pool.fit]); 
+[Y,I] = min([gene_pool.fit]);
+assert(Y>40);
 BestGene = gene_pool(I).value;
 msize = numel(BestGene);
 for r = 2:np
@@ -25,4 +26,5 @@ for r = 2:np
     gene_pool(r).value = MutBestGene; 
 end
 gene_pool(1).value = BestGene; % insert best chromosome
+fprintf('Best Fitness: %4.0f\n', Y)
 end

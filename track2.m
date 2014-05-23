@@ -18,7 +18,7 @@ classdef track2
         % ---------- use setter method to zero out nodes -----------------
         function nodes = get.nodes(obj)
             % initialize the value matrix
-            nodes = rand([obj.H+10 obj.W+10]);
+            nodes = init_nodes(obj.track_data);
         end
     end
 end

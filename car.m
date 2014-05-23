@@ -12,9 +12,7 @@ classdef car
         % done is set to one when the car finishes the track
         done = 0
         check = 1
-        
     end
-    
     methods
         function obj = car(F)
             if nargin ~= 0 % Allow nargin == 0 syntax

@@ -11,6 +11,7 @@ h1 = 2*e1;
 w1 = 5*e1;
 h2 = h1 - 2*e2;
 w2 = w1 - 2*e2;
+s = 2;
 
 % Intermediate values to make setting track path easier
 

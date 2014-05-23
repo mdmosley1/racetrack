@@ -14,6 +14,7 @@ for M = 1:muts % Mutation M
     fprintf('Mutation: %4.0f\n', M)
     if (M>1) % dont mutate on the first iteration
         gene_pool = mutate(gene_pool,mutr,np);
+        fprintf('Gene Pool%4.0f\n', gene_pool.fit)
     end
     % initialize np cars and np chromosomes
     A(1:np,1) = 100;
@@ -35,8 +36,8 @@ for M = 1:muts % Mutation M
             delete_handles(ph,j);
         end
         % evaluate chromosome and return fitness
-        [myCar,myChrom,ph] = eval_chrom(myCar,myChrom,smin,smax,j,ph,...
-            ch,its,clr);
+        [myCar,myChrom,ph] = eval_chrom(myCar,myChrom,smin,smax,...
+            j,ph,ch,its,clr);
         
         if (myCar(j).done == 1) % only save gene if car finished
             gene_pool = save_chrom(myChrom,gene_pool,j);

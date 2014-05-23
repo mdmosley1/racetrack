@@ -43,6 +43,7 @@ while it < its % Iteration it
         myCar(j).check = myCar(j).check + 1;
         if (myCar(j).check == 3) % end of track
             myChrom(j).fit = it+1;
+            assert(myChrom(j).fit > 40); % make sure no anomaly occurs
             myChrom(j).path = myCar(j).pos;
             myCar(j).done = 1;
             return;
