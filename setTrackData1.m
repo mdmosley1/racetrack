@@ -7,8 +7,8 @@ function track_data = setTrackData1
 d = 10; % displacement from xy axis
 e1 = 6; 
 e2 = e1/2;
-h1 = 4*e1;
-w1 = 2*e1;
+h1 = 10*e1;
+w1 = 5*e1;
 h2 = h1 - 2*e2;
 w2 = w1 - 2*e2;
 

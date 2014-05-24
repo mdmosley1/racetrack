@@ -1,4 +1,4 @@
-function [BestChrom] = OptPath(muts,mutr,np,its,smin,smax,myTrack)
+function [BestChrom,Best_Fitness] = OptPath(muts,mutr,np,its,smin,smax,myTrack)
 % OPTPATH
 %   This function will use a genetic algorithm to find the optimum path for
 %   a car navigating a racetrack
@@ -14,14 +14,16 @@ for M = 1:muts % Mutation M
     fprintf('Mutation: %4.0f\n', M)
     if (M>1) % dont mutate on the first iteration
         gene_pool = mutate(gene_pool,mutr,np);
-        fprintf('Gene Pool%4.0f\n', gene_pool.fit)
+        [Y,I] = min([gene_pool.fit]);
+        Best_Fitness(M) = I;
     end
     % initialize np cars and np chromosomes
-    A(1:np,1) = 100;
+    A(1:np,1) = 1000;
     myChrom = chrom(A);
     myCar = car(A);
     
     for j = 1:np % Car/chrom j
+        j
         % initialize chromosome nodes
         newTrack = myTrack;
         myChrom(j).value = newTrack.nodes;
